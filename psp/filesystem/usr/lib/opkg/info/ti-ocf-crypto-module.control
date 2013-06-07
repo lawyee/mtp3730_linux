@@ -1,0 +1,13 @@
+Package: ti-ocf-crypto-module
+Version: 1.0-r102.6
+Description: Builds Crypto module used by OCF-Linux driver in OpenSSL example applications
+Section: base
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: BSD GPLv2
+Architecture: dm37x-evm
+OE: ti-ocf-crypto-module
+Homepage: https://gforge.ti.com/gf/project/arm_crypto/
+Build: install/d0bd439
+Depends: kernel-2.6.37, update-modules
+Source: svn://gforge.ti.com/svn/arm_crypto/;module=trunk;proto=https;user=anonymous;pswd=''

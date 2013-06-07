@@ -1,0 +1,12 @@
+Package: u-boot
+Version: 2010.06-psp04.02.00.07.sdk-r4.6
+Description: u-boot bootloader for OMAP3 devices
+Section: bootloaders
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2
+Architecture: dm37x-evm
+OE: u-boot
+Homepage: http://www.denx.de/wiki/U-Boot/WebHome
+Build: install/d0bd439
+Source: git://arago-project.org/git/projects/u-boot-omap3.git;protocol=git;branch=master file://0001-omap3-evm-allocate-VRFB-buffer-in-bootargs-to-enable.patch file://0001-omap3_evm-Added-function-calls-to-set-volts-speed-on.patch file://0002-omap3_evm-Changed-default-clock-rate-for-AM3517.patch file://0003-Set-ethaddr-environment-variable-and-program-the-EMA.patch

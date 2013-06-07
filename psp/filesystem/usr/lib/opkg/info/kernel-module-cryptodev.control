@@ -1,0 +1,13 @@
+Package: kernel-module-cryptodev
+Version: 2.6.37-psp04.02.00.07.sdk-r102.6
+Description: cryptodev kernel module; Cryptodev (user interface to OCF)
+Section: kernel
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2
+Architecture: dm37x-evm
+OE: linux-omap3
+Homepage: unknown
+Build: install/d0bd439
+Depends: update-modules, kernel-2.6.37
+Source: git://arago-project.org/git/projects/linux-omap3.git;protocol=git;branch=master file://defconfig file://0001-linux-omap3-Add-OCF-support-to-2.6.37-kernel.patch file://0001-omap3evm-add-support-for-the-WL12xx-WLAN-module.patch file://0002-allow-selecting-WL12XX_PLATFROM_DATA-independently.patch file://0003-mmc-skip-detection-of-nonremovable-cards-on-rescan.patch file://0004-mmc-sdio-don-t-reinitialize-nonremovable-powered-res.patch file://0005-mmc-sdio-don-t-power-up-cards-on-system-suspend.patch file://0006-wl12xx-Backport-wl12xx-platform-data.patch file://0007-activate-wireless-extensions.patch file://0001-Fix-matrix-suspend.patch file://0001-OCF-support-remove-support-for-non-TI-hardware.patch file://0002-omap3_evm_defconfig-add-OCF-driver-support.patch file://0003-omap3_evm_defconfig-add-WLAN-config-options.patch file://0001-mt9t111-enable-clock-pad-register-in-configuration.patch file://disable-CONFIG_PROVE_LOCKING-option.patch

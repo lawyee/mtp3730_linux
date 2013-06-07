@@ -1,0 +1,13 @@
+Package: omap3-sgx-modules
+Version: 1.6.16.3977-r102i.6
+Description: Kernel drivers for the PowerVR SGX chipset found in the omap3 SoCs
+Section: base
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2
+Architecture: dm37x-evm
+OE: omap3-sgx-modules
+Homepage: unknown
+Build: install/d0bd439
+Depends: kernel-2.6.37, update-modules
+Source: http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/gfxsdk/4_03_00_02/exports/Graphics_SDK_setuplinux_4_03_00_02.bin file://Compile-fixes-for-38-kernel.patch

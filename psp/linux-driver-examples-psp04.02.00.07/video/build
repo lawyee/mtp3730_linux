@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export PATH=/home/luoyi/arm-2009q1/bin/:$PATH
+
+make PLAT=omap3530

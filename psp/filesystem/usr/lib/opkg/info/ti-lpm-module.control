@@ -1,0 +1,13 @@
+Package: ti-lpm-module
+Version: 2:1_24_03_10_eng-r102d.6
+Description: TI Local Power Manager (LPM)
+Section: devel
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2
+Architecture: dm37x-evm
+OE: ti-local-power-manager
+Homepage: http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/lpm
+Build: install/d0bd439
+Depends: ti-dsplink-module, update-modules
+Source: http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/lpm/1_24_03_10_eng/exports/local_power_manager_linux_1_24_03_10_eng.tar.gz;name=lpmtarball

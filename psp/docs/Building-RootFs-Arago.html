@@ -1,0 +1,426 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0088)http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&printable=yes -->
+<HTML lang=en dir=ltr xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Setting Up Build Environment - AragoWiki</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content="MSHTML 6.00.2900.3660" name=GENERATOR>
+<META content=noindex,follow name=robots>
+<META 
+content="Setting Up Build Environment,Getting CodeSourcery Toolchain,Proxy Settings,Use Upstream OE and BitBake" 
+name=keywords><LINK href="/favicon.ico" rel="shortcut icon"><LINK 
+title="AragoWiki (en)" href="/wiki/opensearch_desc.php" 
+type=application/opensearchdescription+xml rel=search><LINK 
+title="Creative Commons" 
+href="/wiki/index.php?title=Setting_Up_Build_Environment&amp;action=creativecommons" 
+type=application/rdf+xml rel=meta><LINK 
+href="http://creativecommons.org/licenses/by/3.0/" rel=copyright><LINK 
+title="AragoWiki RSS Feed" 
+href="http://arago-project.org/wiki/index.php?title=Special:RecentChanges&amp;feed=rss" 
+type=application/rss+xml rel=alternate><LINK title="AragoWiki Atom Feed" 
+href="http://arago-project.org/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" 
+type=application/atom+xml rel=alternate>
+<STYLE type=text/css media="screen, projection">@import url( /wiki/skins/common/shared.css?164 );
+@import url( /wiki/skins/monobook/main.css?164 );
+</STYLE>
+<LINK href="Building-RootFs-Arago_files/commonPrint.css" type=text/css 
+rel=stylesheet><!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css?164";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css?164";</style><![endif]--><!--[if IE 6]>
+<STYLE type=text/css>@import url( /wiki/skins/monobook/IE60Fixes.css?164 );
+</STYLE>
+<![endif]--><!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?164";</style><![endif]--><!--[if lt IE 7]>
+<SCRIPT src="Building-RootFs-Arago_files/IEFixes.js" 
+type=text/javascript></SCRIPT>
+
+<META http-equiv=imagetoolbar content=no><![endif]-->
+<SCRIPT type=text/javascript>/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/wiki/skins";
+var wgArticlePath = "/wiki/index.php/$1";
+var wgScriptPath = "/wiki";
+var wgScript = "/wiki/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://arago-project.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Setting_Up_Build_Environment";
+var wgTitle = "Setting Up Build Environment";
+var wgAction = "view";
+var wgArticleId = "6";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "111";
+var wgVersion = "1.13.2";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</SCRIPT>
+
+<SCRIPT src="Building-RootFs-Arago_files/wikibits.js" type=text/javascript><!-- wikibits js --></SCRIPT>
+<!-- Head Scripts -->
+<SCRIPT src="Building-RootFs-Arago_files/ajax.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="Building-RootFs-Arago_files/index.php" type=text/javascript><!-- site js --></SCRIPT>
+
+<STYLE type=text/css>@import url( /wiki/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000 );
+@import url( /wiki/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000 );
+@import url( /wiki/index.php?title=-&action=raw&gen=css&maxage=18000&useskin=monobook );
+</STYLE>
+</HEAD>
+<BODY class="mediawiki ns-0 ltr page-Setting_Up_Build_Environment">
+<DIV id=globalWrapper>
+<DIV id=column-content>
+<DIV id=content><A id=top name=top></A>
+<H1 class=firstHeading>Setting Up Build Environment</H1>
+<DIV id=bodyContent>
+<H3 id=siteSub>From AragoWiki</H3>
+<DIV id=contentSub></DIV>
+<DIV id=jump-to-nav>Jump to: <A 
+href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;printable=yes#column-one">navigation</A>, 
+<A 
+href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;printable=yes#searchInput">search</A></DIV><!-- start content -->
+<P>Create a new directory for the build environment: </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Create the directory</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ mkdir $HOME/oe
+$ cd $HOME/oe
+</PRE></TD></TR></TBODY></TABLE>
+<P>Now check out the following repositories: </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Clone Arago repositories</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ git clone git://arago-project.org/git/arago.git
+$ git clone git://arago-project.org/git/arago-oe-dev.git
+$ git clone git://arago-project.org/git/arago-bitbake.git
+</PRE></TD></TR></TBODY></TABLE>
+<P>Replace "git" protocol with "http" or "ssh", depending on the required 
+access. </P>
+<DIV 
+style="BORDER-RIGHT: #ffff70 2px solid; PADDING-RIGHT: 4px; BORDER-TOP: #ffff70 2px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 0px; BORDER-LEFT: #ffff70 2px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #ffff70 2px solid; BACKGROUND-COLOR: #ffffc1"><B>Note:</B> 
+To be able to download sources from the net, it may be required to configure <A 
+title="Proxy Settings" 
+href="http://arago-project.org/wiki/index.php/Proxy_Settings">Proxy 
+Settings</A>.</DIV>
+<DIV 
+style="BORDER-RIGHT: #ffff70 2px solid; PADDING-RIGHT: 4px; BORDER-TOP: #ffff70 2px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 0px; BORDER-LEFT: #ffff70 2px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #ffff70 2px solid; BACKGROUND-COLOR: #ffffc1"><B>Note:</B> 
+If you know what you are doing, you can try using Arago overlay with <A 
+title="Use Upstream OE and BitBake" 
+href="http://arago-project.org/wiki/index.php/Use_Upstream_OE_and_BitBake">upstream 
+OpenEmbedded and BitBake</A> repositories.</DIV>
+<P>The directory should now be populated with 3 subdirectories – 
+<CODE>arago</CODE>, <CODE>arago-oe-dev</CODE> and <CODE>arago-bitbake</CODE>. 
+</P>
+<P>Arago repository comes with samples of <CODE>arago/setenv</CODE> and 
+<CODE>arago/conf/local.conf</CODE> files, which you can use as a starting point, 
+by copying them into their actual names (without <CODE>.sample</CODE> extension) 
+and modifying to suit your needs: </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Copy setup/config files</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ cp arago/setenv.sample arago/setenv
+$ cp arago/conf/local.conf.sample arago/conf/local.conf
+</PRE></TD></TR></TBODY></TABLE>
+<P>Edit <CODE>arago/setenv</CODE> file and make sure environment variables are 
+set properly. <CODE>OEBASE</CODE> should point to the directory you’ve created 
+in the beginning: </P>
+<TABLE 
+style="BORDER-RIGHT: #ffbfbf 1px solid; BORDER-TOP: #ffbfbf 1px solid; BORDER-LEFT: #ffbfbf 1px solid; BORDER-BOTTOM: #ffbfbf 1px solid; BACKGROUND-COLOR: #fff2f2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD style="BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #ffafaf"><FONT 
+      size=-1><B>File:</B> arago/setenv</FONT> </TD></TR>
+  <TR>
+    <TD>
+      <DIV class=scroll><PRE>export OEBASE=$HOME/oe
+</PRE></DIV></TD></TR></TBODY></TABLE>
+<P>Also, in order to use a separate "scratch" area outside of home directory, 
+you may want to enable <CODE>SCRATCH</CODE> variable and point it appropriately: 
+</P>
+<TABLE 
+style="BORDER-RIGHT: #ffbfbf 1px solid; BORDER-TOP: #ffbfbf 1px solid; BORDER-LEFT: #ffbfbf 1px solid; BORDER-BOTTOM: #ffbfbf 1px solid; BACKGROUND-COLOR: #fff2f2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD style="BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #ffafaf"><FONT 
+      size=-1><B>File:</B> arago/setenv</FONT> </TD></TR>
+  <TR>
+    <TD>
+      <DIV class=scroll><PRE>export SCRATCH=/sim/scratch_AID
+</PRE></DIV></TD></TR></TBODY></TABLE>
+<P>Now, source this file to set the environment variables: </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Set the environment variables</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ . arago/setenv
+</PRE></TD></TR></TBODY></TABLE>
+<P>Or alternatively (which is the same, but maybe required if using other shell 
+than bash): </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Set the environment variables</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ source arago/setenv
+</PRE></TD></TR></TBODY></TABLE>
+<P>If not done before, set the <CODE>PATH</CODE> variable to point to the 
+CodeSourcery toolchain (refer to <A title="Getting CodeSourcery Toolchain" 
+href="http://arago-project.org/wiki/index.php/Getting_CodeSourcery_Toolchain">Getting 
+CodeSourcery Toolchain</A> for obtaining one): </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Point to CSL toolchain</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ export PATH=/opt/arm-2009q1/bin:$PATH
+</PRE></TD></TR></TBODY></TABLE>
+<P>Now it should be ready to start a build of the minimal filesystem image: </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Build a minimal base filesystem</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ bitbake arago-base-image
+</PRE></TD></TR></TBODY></TABLE>
+<P>Or to build a bigger filesystem with more applications, libraries and tools: 
+</P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Build a "demo" filesystem for OMAP3 EVM</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ MACHINE=omap3evm bitbake arago-demo-image
+</PRE></TD></TR></TBODY></TABLE>
+<P>To build a kernel, use the following command. Please note, that currently 
+only PSP and <A class="external text" 
+title=http://git.kernel.org/?p=linux/kernel/git/tmlind/linux-omap-2.6.git;a=summary 
+href="http://git.kernel.org/?p=linux/kernel/git/tmlind/linux-omap-2.6.git;a=summary" 
+rel=nofollow>linux-omap</A> linux kernels for OMAP3 EVM and <A 
+class="external text" 
+title=http://git.kernel.org/?p=linux/kernel/git/tmlind/linux-omap-2.6.git;a=summary 
+href="http://git.kernel.org/?p=linux/kernel/git/tmlind/linux-omap-2.6.git;a=summary" 
+rel=nofollow>linux-omap</A> kernel for BeagleBoard are supported. DaVinci 
+platforms use <A class="external text" 
+title=http://git.kernel.org/?p=linux/kernel/git/khilman/linux-davinci.git 
+href="http://git.kernel.org/?p=linux/kernel/git/khilman/linux-davinci.git" 
+rel=nofollow>linux-davinci</A> kernels and also can use <A class="external text" 
+title=http://arago-project.org/git/people/?p=sneha/linux-davinci-staging.git;a=summary 
+href="http://arago-project.org/git/people/?p=sneha/linux-davinci-staging.git;a=summary" 
+rel=nofollow>linux-davinci-staging</A>, which is a staging area for upcoming 
+features. </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>Build different kernels for supported platforms</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>$ MACHINE=omap3evm bitbake virtual/kernel
+$ MACHINE=beagleboard bitbake virtual/kernel
+$ MACHINE=dm6446-evm bitbake virtual/kernel
+$ MACHINE=dm355-evm bitbake virtual/kernel
+</PRE></TD></TR></TBODY></TABLE>
+<P>Resulting images and packages will be placed under <CODE>arago-deploy</CODE> 
+directory - <CODE>images</CODE> for the filesystem, kernel and bootloader; and 
+<CODE>ipk</CODE> for binary IPK packages, respectively. </P>
+<TABLE 
+style="BORDER-RIGHT: #bfffbf 1px solid; BORDER-TOP: #bfffbf 1px solid; BORDER-LEFT: #bfffbf 1px solid; BORDER-BOTTOM: #bfffbf 1px solid; BACKGROUND-COLOR: #f2fff2" 
+cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: #a0ffa0 1px solid; BORDER-TOP: #a0ffa0 1px solid; BORDER-LEFT: #a0ffa0 1px solid; BORDER-BOTTOM: #888 1px solid; BACKGROUND-COLOR: #c1ffc1"><FONT 
+      size=-1>High-level hierarchy of arago-deploy directory</FONT> </TD></TR>
+  <TR>
+    <TD><PRE>arago-deploy
+|-- images
+|   |-- arago
+|   |-- dm355-evm
+|   |-- dm6446-evm
+|   `-- omap3evm
+|-- ipk
+|   |-- all
+|   |-- arago
+|   |-- armv5te
+|   |-- armv7a
+|   |-- dm355-evm
+|   |-- dm6446-evm
+|   |-- i686
+|   |-- i686-armv5te-sdk
+|   |-- i686-armv7a-sdk
+|   `-- omap3evm
+`-- sdk
+</PRE></TD></TR></TBODY></TABLE><!-- 
+NewPP limit report
+Preprocessor node count: 146/1000000
+Post-expand include size: 4226/2097152 bytes
+Template argument size: 1058/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key arago_wikidb:pcache:idhash:6-0!1!0!!en!2!edit=0 and timestamp 20100319024746 -->
+<DIV class=printfooter>Retrieved from "<A 
+href="http://arago-project.org/wiki/index.php/Setting_Up_Build_Environment">http://arago-project.org/wiki/index.php/Setting_Up_Build_Environment</A>"</DIV><!-- end content -->
+<DIV class=visualClear></DIV></DIV></DIV></DIV>
+<DIV id=column-one>
+<DIV class=portlet id=p-cactions>
+<H5>Views</H5>
+<DIV class=pBody>
+<UL>
+  <LI class=selected id=ca-nstab-main><A title="View the content page [c]" 
+  accessKey=c 
+  href="http://arago-project.org/wiki/index.php/Setting_Up_Build_Environment">Page</A> 
+
+  <LI class=new id=ca-talk><A title="Discussion about the content page [t]" 
+  accessKey=t 
+  href="http://arago-project.org/wiki/index.php?title=Talk:Setting_Up_Build_Environment&amp;action=edit">Discussion</A> 
+
+  <LI id=ca-viewsource><A 
+  title="This page is protected.&#10;You can view its source. [e]" accessKey=e 
+  href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;action=edit">View 
+  source</A> 
+  <LI id=ca-history><A title="Past versions of this page. [h]" accessKey=h 
+  href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;action=history">History</A> 
+  </LI></UL></DIV></DIV>
+<DIV class=portlet id=p-personal>
+<H5>Personal tools</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=pt-login><A 
+  title="You are encouraged to log in, it is not mandatory however. [o]" 
+  accessKey=o 
+  href="http://arago-project.org/wiki/index.php?title=Special:UserLogin&amp;returnto=Setting_Up_Build_Environment">Log 
+  in / create account</A> </LI></UL></DIV></DIV>
+<DIV class=portlet id=p-logo><A title="Visit the Main Page [z]" 
+style="BACKGROUND-IMAGE: url(/wiki/arago_logo.png)" accessKey=z 
+href="http://arago-project.org/wiki/index.php/Main_Page"></A></DIV>
+<SCRIPT type=text/javascript> if (window.isMSIE55) fixalpha(); </SCRIPT>
+
+<DIV class="generated-sidebar portlet" id=p-navigation>
+<H5>Navigation</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=n-mainpage-description><A 
+  href="http://arago-project.org/wiki/index.php/Main_Page">Main Page</A> 
+  <LI id=n-portal><A 
+  title="About the project, what you can do, where to find things" 
+  href="http://arago-project.org/wiki/index.php/AragoWiki:Community_Portal">Community 
+  portal</A> 
+  <LI id=n-currentevents><A 
+  title="Find background information on current events" 
+  href="http://arago-project.org/wiki/index.php/AragoWiki:Current_events">Current 
+  events</A> 
+  <LI id=n-recentchanges><A title="The list of recent changes in the wiki. [r]" 
+  accessKey=r 
+  href="http://arago-project.org/wiki/index.php/Special:RecentChanges">Recent 
+  changes</A> 
+  <LI id=n-randompage><A title="Load a random page [x]" accessKey=x 
+  href="http://arago-project.org/wiki/index.php/Special:Random">Random page</A> 
+  <LI id=n-help><A title="The place to find out." 
+  href="http://arago-project.org/wiki/index.php/Help:Contents">Help</A> 
+</LI></UL></DIV></DIV>
+<DIV class=portlet id=p-search>
+<H5><LABEL for=searchInput>Search</LABEL></H5>
+<DIV class=pBody id=searchBody>
+<FORM id=searchform action=/wiki/index.php/Special:Search>
+<DIV><INPUT id=searchInput title="Search AragoWiki [f]" accessKey=f name=search> 
+<INPUT class=searchButton id=searchGoButton title="Go to a page with this exact name if exists" type=submit value=Go name=go>&nbsp; 
+<INPUT class=searchButton id=mw-searchButton title="Search the pages for this text" type=submit value=Search name=fulltext> 
+</DIV></FORM></DIV></DIV>
+<DIV class=portlet id=p-tb>
+<H5>Toolbox</H5>
+<DIV class=pBody>
+<UL>
+  <LI id=t-whatlinkshere><A title="List of all wiki pages that link here [j]" 
+  accessKey=j 
+  href="http://arago-project.org/wiki/index.php/Special:WhatLinksHere/Setting_Up_Build_Environment">What 
+  links here</A> 
+  <LI id=t-recentchangeslinked><A 
+  title="Recent changes in pages linked from this page [k]" accessKey=k 
+  href="http://arago-project.org/wiki/index.php/Special:RecentChangesLinked/Setting_Up_Build_Environment">Related 
+  changes</A> 
+  <LI id=t-upload><A title="Upload files [u]" accessKey=u 
+  href="http://arago-project.org/wiki/index.php/Special:Upload">Upload file</A> 
+  <LI id=t-specialpages><A title="List of all special pages [q]" accessKey=q 
+  href="http://arago-project.org/wiki/index.php/Special:SpecialPages">Special 
+  pages</A> 
+  <LI id=t-print><A title="Printable version of this page [p]" accessKey=p 
+  href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;printable=yes&amp;printable=yes">Printable 
+  version</A> 
+  <LI id=t-permalink><A title="Permanent link to this version of the page" 
+  href="http://arago-project.org/wiki/index.php?title=Setting_Up_Build_Environment&amp;oldid=111">Permanent 
+  link</A> </LI></UL></DIV></DIV></DIV><!-- end of the left (by default at least) column -->
+<DIV class=visualClear></DIV>
+<DIV id=footer>
+<DIV id=f-poweredbyico><A href="http://www.mediawiki.org/"><IMG 
+alt="Powered by MediaWiki" 
+src="Building-RootFs-Arago_files/poweredby_mediawiki_88x31.png"></A></DIV>
+<DIV id=f-copyrightico><A 
+href="http://creativecommons.org/licenses/by/3.0/"><IMG 
+alt="Attribution 3.0 Unported" 
+src="Building-RootFs-Arago_files/88x31.png"></A></DIV>
+<UL id=f-list>
+  <LI id=lastmod>This page was last modified on 30 November 2009, at 06:59. 
+</LI>
+  <LI id=viewcount>This page has been accessed 5,268 times. 
+  <LI id=copyright>Content is available under <A class="external " 
+  title=http://creativecommons.org/licenses/by/3.0/ 
+  href="http://creativecommons.org/licenses/by/3.0/" rel=nofollow>Attribution 
+  3.0 Unported</A>. </LI>
+  <LI id=privacy><A title="AragoWiki:Privacy policy" 
+  href="http://arago-project.org/wiki/index.php/AragoWiki:Privacy_policy">Privacy 
+  policy</A> 
+  <LI id=about><A title=AragoWiki:About 
+  href="http://arago-project.org/wiki/index.php/AragoWiki:About">About 
+  AragoWiki</A> 
+  <LI id=disclaimer><A title="AragoWiki:General disclaimer" 
+  href="http://arago-project.org/wiki/index.php/AragoWiki:General_disclaimer">Disclaimers</A> 
+  </LI></UL></DIV></DIV>
+<SCRIPT type=text/javascript>if (window.runOnloadHook) runOnloadHook();</SCRIPT>
+<!-- Served in 0.409 secs. --></BODY></HTML>

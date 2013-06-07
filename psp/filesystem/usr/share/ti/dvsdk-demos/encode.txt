@@ -1,0 +1,135 @@
+NAME
+       encode - encode video and/or speech files
+
+SYNOPSIS
+       encode [options...]
+
+DESCRIPTION
+       This demo uses the Codec Engine to encode data from peripheral device
+       drivers to files. Video and speech files are supported. The files
+       created will be encoded elementary streams of video or speech.
+
+OPTIONS
+       -v <video file>, --videofile <video file>
+             Encodes video data to the given file. The file will be created if
+             it doesn't exist, and truncated if it does exist. The demo
+             detects which type of video file is supplied using the file
+             extension. Supported video algorithms are MPEG4 (.mpeg4 extension)
+             and H264 (.264 extension).
+
+       -s <speech file>, --speechfile <speech file>
+             Encodes speech data to the given file. The file will be created
+             if it doesn't exist, and truncated if it does exist. The demo
+             detects which type of speech file is supplied using the file
+             extension. The only supported speech algorithm as of now is
+             G.711 (.g711 extension).
+
+       -b <bit rate>, --bitrate <bit rate>
+             This option sets the bit rate with which the video will be
+             encoded. Use a negative value for variable bit rate. Default is
+             variable bit rate.
+
+       -l, --linein
+             This option makes the input device for sound recording be the
+             'line in' as opposed to the 'mic in' default.(Currently not
+             supported)
+
+       -d, --deinterlace
+             This option disables interlacing artifact removal on the captured
+             frames using the resizer peripheral before encoding the frames.
+
+       -k, --keyboard
+             Enables the keyboard input mode which lets the user input
+             commands using the keyboard in addition to the IR remote control
+             interface. At the prompt type 'help' for a list of available
+             commands.
+
+       -t <seconds>, --time <seconds>
+             The number of seconds to run the demo. Defaults to infinite
+             time, which is equivalent to using a value of -1.
+
+       -x, --svideo_input
+             Enables capture input as s-video, if this option is not applied
+             composite will be used.
+
+       -o, --osd
+             Enables the On Screen Display for data visualization. If this
+             option is not passed, the data will be output to stdout instead.
+             Note that if you use dvi or tv output, you will need a USB mouse
+             powered by a USB hub connected to the EVM to navigate the UI.
+
+       -O <display output>, --display_output
+             Selects the video output to display, valid outputs are
+             'lcd', 'dvi' or 'tv'. The 'tv' option means composite or s-video
+             depending on EVM dip switch settings.
+
+       -h, --help
+             This will print the usage of the demo.
+
+EXAMPLE USAGE
+       General usage:
+             ./encode -h
+
+       Encode captured frames from s-video and store in file:
+             ./encode -v test.mpeg4 -x
+
+       De-interlace Encode captured frames and store in file:
+             ./encode -v test.mpeg4 -d
+
+       Resize Encode captured frames and store in file:
+             ./encode -v test.mpeg4 -r 640x480
+
+       De-interlace resize and Encode captured frames and store in file:
+             ./encode -v test.mpeg4 -d -r 640x480
+
+COPYRIGHT
+       Copyright (c) Texas Instruments Incorporated 2010
+
+       Use of this software is controlled by the terms and conditions found in
+       the license agreement under which this software has been supplied or
+       provided.
+
+VERSION
+       4.02
+
+CHANGELOG
+       3.01
+             Qt interface with file selector replaced old GUI.
+             Matrix Gui support added.
+             Interface demo supprt removed.
+
+       3.01 beta
+
+             s-video in support is added
+             Aligned with PSP 3.00.01.06
+             Audio encode is supported. 
+             De-interlacer support is added to capture.c file
+             Speech encode is supported.(only g711 encoder)
+
+       3.00
+             Now supports OMAP3530
+
+             Only D1 resolution is supported, so the '-r' parameter is
+             disabled.
+
+             Only PAL/NTSC video input and output is currently supported.
+             User pointer buffer implementation has been added.
+             A bit rate parameter was added (-b) to allow the user to change
+             bit rate of the video being encoded.
+
+             The demo now has a keyboard interface (-k) which lets
+             you input the same commands as you would have input using the
+             remote control in the past.
+
+             A 'display' thread has been added to show the raw captured
+             video being currently encoded on the display while it is being
+             encoded.
+
+             A 'writer' thread has been added to parallelize the filesystem
+             I/O with the DSP algorithm processing.
+
+
+
+SEE ALSO
+       For documentation and release notes on the individual components see
+       the html files in the host installation directory.

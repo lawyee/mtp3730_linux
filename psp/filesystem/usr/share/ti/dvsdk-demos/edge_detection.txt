@@ -1,0 +1,57 @@
+NAME
+       edge_detection  -Sobel Edge detection on a video loopback
+
+SYNOPSIS
+       edge_detection [options...]
+
+DESCRIPTION
+   This application  runs an sobel edge detector on a video loopback between the capture and display 
+   device  i.e. the output frame of the capture device is given to a 3x3 sobel edge detector whose output 
+   is given as input to the display device. This demo is used to highlight the features that can be added to an ARM
+   application by offloading compute intense tasks to the DSP using C6Accel 
+
+OPTIONS
+                                                                             
+	-y | --display_standard  Video standard to use for display (see below)          
+	-O | --display_output    Video output to use (see below)                        
+	     --benchmark         Print benchmarking information                         
+	-x | --Capture_input     Select this option if capture input is s-video         
+	-h | --help              Print usage information (this message)                 
+	-n | --numframes         Number of frames to process [Default: 1000]            
+		                                                                        
+	Display standards available:                                                    
+		1       VGA                                                             
+		2       D1 NTSC                                                         
+	Video output available:                                                         
+		composite                                                               
+		s-video                                                                 
+		lcd                                                                     
+		dvi                                                                     
+		auto (select video output by reading sysfs) 
+
+NOTE : If more than once an option is specified it will take the last
+       occurence of the option as the input to application and discard other 
+       occurences.
+
+EXAMPLE USAGE
+       General usage: ( Composite Input LCD display)
+             ./edge_detection -O auto
+       Note: This will make the demo run in an infinite loop. Use -n option to 
+             specify the number of frames after which the demo must terminate.
+       
+COPYRIGHT
+       Copyright (c) Texas Instruments Incorporated 2010
+
+       Use of this software is controlled by the terms and conditions found in
+       the license agreement under which this software has been supplied or
+       provided.
+
+KNOWN ISSUES
+       Has been tested for D1 PAL/NTSC composite and s-video inputs and lcd,auto outputs on DM3730 @800MHz & 1GHz
+
+VERSION
+       Beta Release
+
+SEE ALSO
+       For documentation and release notes on the individual components see
+       the html files in the host installation directory.

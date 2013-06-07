@@ -1,0 +1,14 @@
+0001-linux-omap3-Add-OCF-support-to-2.6.37-kernel.patch -p1
+0001-omap3evm-add-support-for-the-WL12xx-WLAN-module.patch -p1
+0002-allow-selecting-WL12XX_PLATFROM_DATA-independently.patch -p1
+0003-mmc-skip-detection-of-nonremovable-cards-on-rescan.patch -p1
+0004-mmc-sdio-don-t-reinitialize-nonremovable-powered-res.patch -p1
+0005-mmc-sdio-don-t-power-up-cards-on-system-suspend.patch -p1
+0006-wl12xx-Backport-wl12xx-platform-data.patch -p1
+0007-activate-wireless-extensions.patch -p1
+0001-Fix-matrix-suspend.patch -p1
+0001-OCF-support-remove-support-for-non-TI-hardware.patch -p1
+0002-omap3_evm_defconfig-add-OCF-driver-support.patch -p1
+0003-omap3_evm_defconfig-add-WLAN-config-options.patch -p1
+0001-mt9t111-enable-clock-pad-register-in-configuration.patch -p1
+disable-CONFIG_PROVE_LOCKING-option.patch -p1

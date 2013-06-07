@@ -1,0 +1,4 @@
+0001-omap3-evm-allocate-VRFB-buffer-in-bootargs-to-enable.patch -p1
+0001-omap3_evm-Added-function-calls-to-set-volts-speed-on.patch -p1
+0002-omap3_evm-Changed-default-clock-rate-for-AM3517.patch -p1
+0003-Set-ethaddr-environment-variable-and-program-the-EMA.patch -p1

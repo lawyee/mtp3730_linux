@@ -1,0 +1,40 @@
+diff -Naur psp_examples_omap_ori/audio/Rules.make psp_examples_omap_new/audio/Rules.make
+--- psp_examples_omap_ori/audio/Rules.make	2011-12-07 22:11:46.268399218 +0530
++++ psp_examples_omap_new/audio/Rules.make	2011-12-07 22:11:10.620398847 +0530
+@@ -20,4 +20,4 @@
+ INCLUDE_DIR = $(KERNEL_DIR)/include -I$(KERNEL_DIR)/arch/arm/plat-omap/include/
+ 
+ #This is the prefix applied to the gcc when compiling applications and library
+-CROSS_COMPILE = arm-none-linux-gnueabi-
++CROSS_COMPILE = arm-arago-linux-gnueabi-
+diff -Naur psp_examples_omap_ori/video/Makefile psp_examples_omap_new/video/Makefile
+--- psp_examples_omap_ori/video/Makefile	2011-12-07 22:11:46.268399218 +0530
++++ psp_examples_omap_new/video/Makefile	2011-12-07 22:58:42.385020000 +0530
+@@ -50,7 +50,7 @@
+ 	-Wstrict-prototypes \
+ 	-fno-stack-protector
+ 
+-LDFLAGS = -L/opt/codesourcery/arm-none-linux-gnueabi/libc/lib
++LDFLAGS = -L/opt/codesourcery/arm-arago-linux-gnueabi/libc/lib
+ 
+ 
+ #
+@@ -143,7 +143,7 @@
+ endif
+ 
+ headers_install:
+-	make -C $(KERNEL_DIR) headers_install
++	make -C $(KERNEL_DIR) ARCH=arm headers_install
+ 
+ #
+ # Show usage
+diff -Naur psp_examples_omap_ori/video/Rules.make psp_examples_omap_new/video/Rules.make
+--- psp_examples_omap_ori/video/Rules.make	2011-12-07 22:11:46.268399218 +0530
++++ psp_examples_omap_new/video/Rules.make	2011-12-07 22:11:10.620398847 +0530
+@@ -55,5 +55,5 @@
+ INCLUDE_DIR = $(KERNEL_DIR)/usr/include
+ 
+ #This is the prefix applied to the gcc when compiling applications and library
+-CROSS_COMPILE = arm-none-linux-gnueabi-
++CROSS_COMPILE = arm-arago-linux-gnueabi-
+ 

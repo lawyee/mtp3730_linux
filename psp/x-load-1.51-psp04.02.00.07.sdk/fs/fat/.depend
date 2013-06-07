@@ -1,0 +1,27 @@
+fat.o: fat.c ../..//include/common.h ../..//include/config.h \
+  ../..//include/configs/omap3beagle.h ../..//include/asm/arch/cpu.h \
+  ../..//include/asm/arch/omap3430.h ../..//include/asm/arch/sizes.h \
+  ../..//include/linux/types.h ../..//include/linux/config.h \
+  ../..//include/linux/posix_types.h ../..//include/linux/stddef.h \
+  ../..//include/asm/posix_types.h ../..//include/asm/types.h \
+  /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  ../..//include/asm/setup.h ../..//include/asm/x-load-arm.h \
+  ../..//include/part.h ../..//include/ide.h ../..//include/fat.h \
+  ../..//include/asm/byteorder.h \
+  ../..//include/linux/byteorder/little_endian.h \
+  ../..//include/linux/byteorder/swab.h \
+  ../..//include/linux/byteorder/generic.h
+file.o: file.c ../..//include/common.h ../..//include/config.h \
+  ../..//include/configs/omap3beagle.h ../..//include/asm/arch/cpu.h \
+  ../..//include/asm/arch/omap3430.h ../..//include/asm/arch/sizes.h \
+  ../..//include/linux/types.h ../..//include/linux/config.h \
+  ../..//include/linux/posix_types.h ../..//include/linux/stddef.h \
+  ../..//include/asm/posix_types.h ../..//include/asm/types.h \
+  /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  ../..//include/asm/setup.h ../..//include/asm/x-load-arm.h \
+  ../..//include/malloc.h ../..//include/part.h ../..//include/ide.h \
+  ../..//include/fat.h ../..//include/asm/byteorder.h \
+  ../..//include/linux/byteorder/little_endian.h \
+  ../..//include/linux/byteorder/swab.h \
+  ../..//include/linux/byteorder/generic.h ../..//include/linux/stat.h \
+  ../..//include/linux/time.h

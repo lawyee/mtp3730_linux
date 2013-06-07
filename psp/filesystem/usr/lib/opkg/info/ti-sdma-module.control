@@ -1,0 +1,12 @@
+Package: ti-sdma-module
+Version: 1:2_26_02_05-r102d.6
+Description: MFP Linux utils for TI ARM/DSP processors
+Section: devel
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2,BSD
+Architecture: dm37x-evm
+OE: ti-linuxutils
+Homepage: unknown
+Build: install/d0bd439
+Source: http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/linuxutils/2_26_02_05/exports/linuxutils_2_26_02_05.tar.gz file://CMEM-fix-for-issue-symbol-arm926_dma_map_area.patch

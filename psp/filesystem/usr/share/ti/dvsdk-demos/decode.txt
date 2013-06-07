@@ -1,0 +1,100 @@
+NAME
+       decode - decode video and audio files
+
+SYNOPSIS
+       decode [options...]
+
+DESCRIPTION
+       This demo uses the Codec Engine to decode data from files and output
+       the uncompressed data using peripheral device drivers. Video, speech
+       and audio files are supported.  All files must consist of raw encoded
+       frames of data (elementary streams).
+
+OPTIONS
+       -v <video file>, --videofile <video file>
+             Decodes a video file.  The demo detects which type of video file
+             is supplied using the file extension.  Supported video algorithms
+             are MPEG4 SP (.mpeg4 or .m4v extension) and H.264 BP
+             (.264 extension)
+
+       -a <audio file>, --audiofile <audio file>
+             Decodes the audio file. The demo detects which type of audio file
+             is supplied using the file extension. Supported audio algorithms
+             are AAC (.aac extension) & MP3 (.mp3 extension) -- As long as the
+             Codec Server contains a valid algorithm to use. 
+
+       -s <speech file>, --speechfile <speech file>
+             Decodes a speech file. The demo detects which type of speech
+             file is supplied using the file extension. The only supported
+             speech algorithm as of now is G.711 (.g711 extension).
+
+       -O <display output>, --display_output
+             Selects the video output to display, valid outputs are
+             'lcd', 'dvi' or 's-video'. If this parameter is not specified
+             the application will use the overlay settings from the system.
+             
+       -l, --loop
+             If this option is selected, the demo will restart at the
+             beginning of a file (or files) when the end is reached. If this
+             option is not selected (which is the default) the demo will quit
+             once the end of the file (or files) has been reached.Priority
+             will go to -t(time) if both are specified together 
+
+       -o, --osd
+             Enables the On Screen Display for data visualization. If this
+             option is not passed, the data will be output to stdout instead.
+             Note that if you use dvi or tv output, you will need a USB mouse
+             powered by a USB hub connected to the EVM to navigate the UI.
+
+       -k, --keyboard
+             Enables the keyboard input mode which lets the user input
+             commands using the keyboard in addition to the keypad
+             interface. At the prompt type 'help' for a list of available
+             commands.
+
+       -t <seconds>, --time <seconds>
+             The number of seconds to run the demo. Defaults to infinite time.
+
+       -h, --help
+             This will print the usage of the demo.
+
+EXAMPLE USAGE
+       General usage:
+             ./decode -h
+
+       MPEG4 NTSC video decode and display only with keyboard interface and OSD:
+             ./decode -k -o \
+                   -v /usr/share/ti/data/videos/davincieffect_480p30.m4v
+
+       H.264 video decode and display on DVI 480P output and AAC audio decode:
+             ./decode -O dvi \
+                 -a /usr/share/ti/data/sounds/davincieffect_lc.aac \
+                 -v /usr/share/ti/data/videos/davincieffect_480p30.264
+
+COPYRIGHT
+       Copyright (c) Texas Instruments Incorporated  2010
+
+       Use of this software is controlled by the terms and conditions found in
+       the license agreement under which this software has been supplied or
+       provided.
+
+KNOWN ISSUES
+       The image is not centered on the display because of a 4096 byte
+       alignment in the resizer driver.
+
+VERSION
+       4.02
+
+CHANGELOG
+       3.01
+             Qt interface with file selector replaced old GUI.
+             Matrix Gui support added.
+             Interface demo supprt removed.
+
+       3.00
+             Added support for speech decode demos.
+             Added support for Userpointer buffers for video decode demos.
+
+SEE ALSO
+       For documentation and release notes on the individual components see
+       the html files in the host installation directory.

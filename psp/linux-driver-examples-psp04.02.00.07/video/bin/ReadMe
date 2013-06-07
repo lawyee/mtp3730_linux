@@ -1,0 +1,33 @@
+Usage: make all PLAT=<proc>
+
+where,
+	proc: One of the following:
+		- omap3530
+		- omap3517
+
+This directory will contain executables for Sample Video driver applications
+provided with the release package.
+
+Copy all the files under this folder to target and run all the sample
+applications one by one in order as listed by ls -al command.
+
+Frame rate calculated in SaMmapLoopback application may not be the same
+under heavy system load.  Memory copy is happening in between the
+captured and displayed frame. So this might take long time under heavy
+system load and frame rate displayed may fall.  In any case the screen
+refresh rate will remain same under heavy load condition also
+as same buffers will be displayed by the V4L2 display driver if the
+applications is not able to queue new buffer before the last buffer is
+displayed.
+
+SaMmapDisplay is slight shaking on LCD.  The reason behind that is
+between the Queing of the new buffer and Dqueing of the old buffer
+application of filling of the new buffer and its not able to fill
+the buffer at enough pace at which the buffer is getting refreshed.
+So De-queue happens late than expected and same buffer is displayed
+by driver if no new buffer is queueud before the last queued buffer
+finishes displaying. Thats why image is slight shaky.
+
+By default saFbdevRotationFlip will run properly on LCD.  If it
+needs to be run on DVI with 480P then it should be run as
+"./saFbdevRotationFlip 1".

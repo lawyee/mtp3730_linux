@@ -1,0 +1,12 @@
+Package: x-load
+Version: 1.51-psp04.02.00.07.sdk-r1.6
+Description: x-load bootloader loader
+Section: bootloaders
+Priority: optional
+Maintainer: Arago Developers <arago-devel@gforge.ti.com>
+License: GPLv2+
+Architecture: dm37x-evm
+OE: x-load
+Homepage: unknown
+Build: install/d0bd439
+Source: git://arago-project.org/git/projects/x-load-omap3.git;protocol=git file://0001-Fix-clock-values-for-non-26MHz-source.patch
