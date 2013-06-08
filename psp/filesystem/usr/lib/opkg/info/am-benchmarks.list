@@ -1,6 +1,0 @@
-/usr/bin/linpack
-/usr/bin/runWhetstone
-/usr/bin/runLinpack
-/usr/bin/dhrystone
-/usr/bin/runDhrystone
-/usr/bin/whetstone

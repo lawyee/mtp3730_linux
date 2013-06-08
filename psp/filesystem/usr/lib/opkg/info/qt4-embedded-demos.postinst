@@ -1,2 +1,0 @@
-ln -s /usr/lib/libQtGuiE.so.4  /usr/lib/libQtGui.so.4
- ln -s /usr/lib/libQtCoreE.so.4  /usr/lib/libQtCore.so.4

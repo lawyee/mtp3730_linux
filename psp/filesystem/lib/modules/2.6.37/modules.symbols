@@ -1,0 +1,10 @@
+# Aliases for symbols, used by symbol_request().
+alias symbol:corgibl_limit_intensity generic_bl
+alias symbol:gspca_frame_add gspca_main
+alias symbol:gspca_dev_probe2 gspca_main
+alias symbol:gspca_dev_probe gspca_main
+alias symbol:gspca_disconnect gspca_main
+alias symbol:gspca_suspend gspca_main
+alias symbol:gspca_debug gspca_main
+alias symbol:gspca_resume gspca_main
+alias symbol:gspca_auto_gain_n_exposure gspca_main

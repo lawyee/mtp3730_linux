@@ -1,2 +1,0 @@
-ln -sf libTICPUBLT_BX.so /usr/lib/libTICPUBLT_BX.so.1.0
-    ln -sf libTICPUBLT_BX.so /usr/lib/libTICPUBLT_BX.so.1.0.1.6

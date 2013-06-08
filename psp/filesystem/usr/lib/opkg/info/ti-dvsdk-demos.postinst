@@ -1,1 +1,0 @@
-	ln -sf /usr/share/ti/ti-codecs-server/*.x64P /usr/share/ti/dvsdk-demos/

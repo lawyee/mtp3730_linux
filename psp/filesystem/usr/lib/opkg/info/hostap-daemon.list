@@ -1,4 +1,0 @@
-/etc/init.d/hostapd
-/usr/sbin/hostapd
-/usr/sbin/hostapd_cli
-/etc/hostapd.conf
