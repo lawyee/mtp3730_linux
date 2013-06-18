@@ -39,6 +39,7 @@
 
 static struct regulator *beagle_1v5;	//beagle_cam_digital
 static struct regulator *beagle_1v8;	//beagle_cam_io
+static struct regulator *beagle_2v8;	//beagle_cam_analog
 
 static int ov5640_read_reg(struct i2c_client *client, unsigned short reg)
 {
@@ -73,14 +74,14 @@ static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 	printk(KERN_DEBUG "%s, ENTER\n",__func__);
 	struct isp_device *isp = v4l2_dev_to_isp_device(subdev->v4l2_dev);
 
-	if (!beagle_1v5 || !beagle_1v8) {
+	if (!beagle_2v8 || !beagle_1v8) {
 		dev_err(isp->dev, "No regulator available\n");
 		return -ENODEV;
 	}
 	if (on) {
 		/* Check Voltage-Levels */
-		if(regulator_get_voltage(beagle_1v5) != 1500000)
-			regulator_set_voltage(beagle_1v5,1500000,1500000);
+		if(regulator_get_voltage(beagle_2v8) != 2800000)
+			regulator_set_voltage(beagle_2v8,2800000,2800000);
 		
 		if(regulator_get_voltage(beagle_1v8) != 1800000)
 			regulator_set_voltage(beagle_1v8,1800000,1800000);
@@ -98,10 +99,12 @@ static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 		gpio_set_value(LEOPARD_RESET_GPIO, 0);
 		/* Turn on VDD */
 		regulator_enable(beagle_1v8);
+		/* T0 */
 		mdelay(1);
-		regulator_enable(beagle_1v5);
+		regulator_enable(beagle_2v8);
+		/* T2 */
+		mdelay(10);
 
-		mdelay(50);
 		/* Enable EXTCLK */
 		if (isp->platform_cb.set_xclk)
 			isp->platform_cb.set_xclk(isp, 24000000, CAM_USE_XCLKA);
@@ -109,7 +112,9 @@ static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 		 * Wait at least 70 CLK cycles (w/EXTCLK = 24MHz):
 		 * ((1000000 * 70) / 24000000) = aprox 3 us.
 		 */
-		udelay(3);
+		//udelay(3);
+		/* T3 */
+		mdelay(3);
 		/* Set RESET_BAR to 1 */
 		gpio_set_value(LEOPARD_RESET_GPIO, 1);
 		/* Set POWER_DOWN to 0 */
@@ -118,19 +123,21 @@ static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 		 * Wait at least 100 CLK cycles (w/EXTCLK = 24MHz):
 		 * ((1000000 * 100) / 24000000) = aprox 5 us.
 		 */
-		udelay(5);
+		//udelay(5);
+		/* T4 */
+		mdelay(30);
 		while(1){
 			struct i2c_client *client = v4l2_get_subdevdata(subdev);
 
-			printk(KERN_INFO "%s,val=0x%x\n",__func__,(ov5640_read_reg(client, 0x300a) << 8) + ov5640_read_reg(client, 0x300b));
+			printk(KERN_INFO "%s,detect ov5640 = 0x%x\n",__func__,(ov5640_read_reg(client, 0x300a) << 8) + ov5640_read_reg(client, 0x300b));
 
 		}
 	} else {
 		/*
 		 * Power Down Sequence
 		 */
-		if (regulator_is_enabled(beagle_1v5))
-			regulator_disable(beagle_1v5);
+		if (regulator_is_enabled(beagle_2v8))
+			regulator_disable(beagle_2v8);
 		if (regulator_is_enabled(beagle_1v8))
 			regulator_disable(beagle_1v8);
 
@@ -203,15 +210,15 @@ static int __init beagle_cam_init(void)
 	/*
 	 * Regulator supply required for camera interface
 	 */
-	beagle_1v5 = regulator_get(NULL, "cam_1v5");
-	if (IS_ERR(beagle_1v5)) {
+	beagle_2v8 = regulator_get(NULL, "cam_2v8");
+	if (IS_ERR(beagle_2v8)) {
 		printk(KERN_ERR "cam_1v8 regulator missing\n");
 		return PTR_ERR(beagle_1v8);
 	}
 	beagle_1v8 = regulator_get(NULL, "cam_1v8");
 	if (IS_ERR(beagle_1v8)) {
 		printk(KERN_ERR "cam_1v8 regulator missing\n");
-		regulator_put(beagle_1v5);
+		regulator_put(beagle_2v8);
 		return PTR_ERR(beagle_1v8);
 	}
 	/*
@@ -220,7 +227,7 @@ static int __init beagle_cam_init(void)
 	if (gpio_request(LEOPARD_RESET_GPIO, "cam_rst") != 0) {
 		printk(KERN_ERR "beagle-cam: Could not request GPIO %d\n",
 				LEOPARD_RESET_GPIO);
-		regulator_put(beagle_1v5);
+		regulator_put(beagle_2v8);
 		regulator_put(beagle_1v8);
 		return -ENODEV;
 	}
@@ -235,9 +242,9 @@ static int __init beagle_cam_init(void)
 
 static void __exit beagle_cam_exit(void)
 {
-	if (regulator_is_enabled(beagle_1v5))
-		regulator_disable(beagle_1v5);
-	regulator_put(beagle_1v5);
+	if (regulator_is_enabled(beagle_2v8))
+		regulator_disable(beagle_2v8);
+	regulator_put(beagle_2v8);
 	if (regulator_is_enabled(beagle_1v8))
 		regulator_disable(beagle_1v8);
 	regulator_put(beagle_1v8);
