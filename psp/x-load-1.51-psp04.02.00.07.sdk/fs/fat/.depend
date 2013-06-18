@@ -4,7 +4,7 @@ fat.o: fat.c ../..//include/common.h ../..//include/config.h \
   ../..//include/linux/types.h ../..//include/linux/config.h \
   ../..//include/linux/posix_types.h ../..//include/linux/stddef.h \
   ../..//include/asm/posix_types.h ../..//include/asm/types.h \
-  /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
   ../..//include/asm/setup.h ../..//include/asm/x-load-arm.h \
   ../..//include/part.h ../..//include/ide.h ../..//include/fat.h \
   ../..//include/asm/byteorder.h \
@@ -17,7 +17,7 @@ file.o: file.c ../..//include/common.h ../..//include/config.h \
   ../..//include/linux/types.h ../..//include/linux/config.h \
   ../..//include/linux/posix_types.h ../..//include/linux/stddef.h \
   ../..//include/asm/posix_types.h ../..//include/asm/types.h \
-  /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
   ../..//include/asm/setup.h ../..//include/asm/x-load-arm.h \
   ../..//include/malloc.h ../..//include/part.h ../..//include/ide.h \
   ../..//include/fat.h ../..//include/asm/byteorder.h \

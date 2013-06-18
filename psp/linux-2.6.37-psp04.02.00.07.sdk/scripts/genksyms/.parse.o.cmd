@@ -4,23 +4,24 @@ deps_scripts/genksyms/parse.o := \
   scripts/genksyms/parse.c \
   /usr/include/assert.h \
   /usr/include/features.h \
-  /usr/include/x86_64-linux-gnu/bits/predefs.h \
-  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
-  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
-  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
-  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/bits/predefs.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-32.h \
   /usr/include/malloc.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.5.3/include/stddef.h \
+  /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stddef.h \
   /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/types.h \
-  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
   /usr/include/libio.h \
   /usr/include/_G_config.h \
   /usr/include/wchar.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.5.3/include/stdarg.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/lib/gcc/i486-linux-gnu/4.4.3/include/stdarg.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/sys_errlist.h \
+  /usr/include/bits/stdio.h \
+  /usr/include/bits/stdio2.h \
   scripts/genksyms/genksyms.h \
 
 scripts/genksyms/parse.o: $(deps_scripts/genksyms/parse.o)

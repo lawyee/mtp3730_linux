@@ -34,7 +34,7 @@ Linker script and memory map
                 0x00000000                . = 0x0
                 0x00000000                . = ALIGN (0x4)
 
-.text           0x40200800     0x485c
+.text           0x40200800     0x488c
  cpu/omap3/start.o(.text)
  .text          0x40200800      0x180 cpu/omap3/start.o
                 0x40200840                _end_vect
@@ -109,151 +109,152 @@ Linker script and memory map
                 0x40202f10                omap_get_gpio_datain
  .text          0x4020300c       0x98 lib/libarm.a(_udivsi3.o)
                 0x4020300c                __udivsi3
- .text          0x402030a4      0x11c lib/libarm.a(board.o)
+ .text          0x402030a4      0x14c lib/libarm.a(board.o)
                 0x402030a4                hang
                 0x402030b8                print_info
                 0x402030d0                start_armboot
- .text          0x402031c0      0x6d4 lib/libarm.a(printf.o)
-                0x4020348c                serial_printf
-                0x402031c0                strnlen
- .text          0x40203894        0x4 lib/libarm.a(div0.o)
-                0x40203894                __div0
- .text          0x40203898       0xb4 lib/libarm.a(_umodsi3.o)
-                0x40203898                __umodsi3
- .text          0x4020394c      0xcb0 fs/fat/libfat.a(fat.o)
-                0x402039cc                strcpy
-                0x40203a20                memcpy
-                0x402043b4                file_fat_read
-                0x4020397c                strncmp
-                0x40203dec                do_fat_read
-                0x402043bc                file_fat_ls
-                0x402039e8                strcmp
-                0x402044b0                file_fat_detectfs
-                0x40203a44                disk_read
-                0x402043cc                fat_register_device
- .text          0x402045fc      0x178 disk/libdisk.a(part.o)
-                0x402045fc                dev_print
- .text          0x40204774       0xa4 drivers/libdrivers.a(serial.o)
-                0x40204774                serial_setbrg
-                0x40204784                serial_tstc
-                0x402047a4                serial_putc
-                0x402047fc                serial_init
-                0x402047d4                serial_puts
-                0x40204790                serial_getc
- .text          0x40204818       0xb4 drivers/libdrivers.a(ns16550.o)
-                0x40204894                NS16550_putc
-                0x40204818                NS16550_init
-                0x402048c0                NS16550_tstc
-                0x402048ac                NS16550_getc
-                0x4020485c                NS16550_reinit
- .text          0x402048cc      0x16c drivers/libdrivers.a(onenand.o)
-                0x402049c8                onenand_chip
-                0x402048cc                onenand_read_block
- .text          0x40204a38      0x38c drivers/libdrivers.a(k9f1g08r0a.o)
-                0x40204aec                nand_read_block
-                0x40204cd8                nand_chip
- .text          0x40204dc4        0x8 cpu/omap3/libomap3.a(cpu.o)
-                0x40204dc4                cpu_init
- .text          0x40204dcc      0x290 lib/libarm.a(ecc.o)
-                0x40204ed0                nand_correct_data
-                0x40204dcc                nand_calculate_ecc
+ .text          0x402031f0      0x6d4 lib/libarm.a(printf.o)
+                0x402034bc                serial_printf
+                0x402031f0                strnlen
+ .text          0x402038c4        0x4 lib/libarm.a(div0.o)
+                0x402038c4                __div0
+ .text          0x402038c8       0xb4 lib/libarm.a(_umodsi3.o)
+                0x402038c8                __umodsi3
+ .text          0x4020397c      0xcb0 fs/fat/libfat.a(fat.o)
+                0x402039fc                strcpy
+                0x40203a50                memcpy
+                0x402043e4                file_fat_read
+                0x402039ac                strncmp
+                0x40203e1c                do_fat_read
+                0x402043ec                file_fat_ls
+                0x40203a18                strcmp
+                0x402044e0                file_fat_detectfs
+                0x40203a74                disk_read
+                0x402043fc                fat_register_device
+ .text          0x4020462c      0x178 disk/libdisk.a(part.o)
+                0x4020462c                dev_print
+ .text          0x402047a4       0xa4 drivers/libdrivers.a(serial.o)
+                0x402047a4                serial_setbrg
+                0x402047b4                serial_tstc
+                0x402047d4                serial_putc
+                0x4020482c                serial_init
+                0x40204804                serial_puts
+                0x402047c0                serial_getc
+ .text          0x40204848       0xb4 drivers/libdrivers.a(ns16550.o)
+                0x402048c4                NS16550_putc
+                0x40204848                NS16550_init
+                0x402048f0                NS16550_tstc
+                0x402048dc                NS16550_getc
+                0x4020488c                NS16550_reinit
+ .text          0x402048fc      0x16c drivers/libdrivers.a(onenand.o)
+                0x402049f8                onenand_chip
+                0x402048fc                onenand_read_block
+ .text          0x40204a68      0x38c drivers/libdrivers.a(k9f1g08r0a.o)
+                0x40204b1c                nand_read_block
+                0x40204d08                nand_chip
+ .text          0x40204df4        0x8 cpu/omap3/libomap3.a(cpu.o)
+                0x40204df4                cpu_init
+ .text          0x40204dfc      0x290 lib/libarm.a(ecc.o)
+                0x40204f00                nand_correct_data
+                0x40204dfc                nand_calculate_ecc
 
-.glue_7         0x4020505c        0x0
+.glue_7         0x4020508c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x4020505c        0x0
+.glue_7t        0x4020508c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x4020505c        0x0
+.vfp11_veneer   0x4020508c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x4020505c        0x0
+.v4_bx          0x4020508c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
-                0x4020505c                . = ALIGN (0x4)
+                0x4020508c                . = ALIGN (0x4)
 
-.rodata         0x4020505c      0x148
+.rodata         0x4020508c      0x156
  *(.rodata)
- .rodata        0x4020505c       0x30 cpu/omap3/libomap3.a(mmc.o)
- .rodata        0x4020508c       0x18 drivers/libdrivers.a(k9f1g08r0a.o)
- .rodata        0x402050a4      0x100 lib/libarm.a(ecc.o)
+ .rodata        0x4020508c       0x30 cpu/omap3/libomap3.a(mmc.o)
+ .rodata        0x402050bc        0xe lib/libarm.a(board.o)
+ .rodata        0x402050ca       0x18 drivers/libdrivers.a(k9f1g08r0a.o)
+ .rodata        0x402050e2      0x100 lib/libarm.a(ecc.o)
 
-.rodata.str1.1  0x402051a4      0x589
+.rodata.str1.1  0x402051e2      0x5a5
  .rodata.str1.1
-                0x402051a4      0x101 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
+                0x402051e2      0x101 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
  .rodata.str1.1
-                0x402052a5       0x52 cpu/omap3/libomap3.a(gpio.o)
+                0x402052e3       0x52 cpu/omap3/libomap3.a(gpio.o)
  .rodata.str1.1
-                0x402052f7       0x9c lib/libarm.a(board.o)
+                0x40205335       0xb8 lib/libarm.a(board.o)
  .rodata.str1.1
-                0x40205393       0x51 lib/libarm.a(printf.o)
+                0x402053ed       0x51 lib/libarm.a(printf.o)
  .rodata.str1.1
-                0x402053e4      0x18c fs/fat/libfat.a(fat.o)
+                0x4020543e      0x18c fs/fat/libfat.a(fat.o)
                                 0x18d (size before relaxing)
  .rodata.str1.1
-                0x40205570       0xe5 disk/libdisk.a(part.o)
+                0x402055ca       0xe5 disk/libdisk.a(part.o)
  .rodata.str1.1
-                0x40205655       0x87 drivers/libdrivers.a(onenand.o)
+                0x402056af       0x87 drivers/libdrivers.a(onenand.o)
  .rodata.str1.1
-                0x402056dc       0x51 drivers/libdrivers.a(k9f1g08r0a.o)
+                0x40205736       0x51 drivers/libdrivers.a(k9f1g08r0a.o)
                                  0x53 (size before relaxing)
-                0x40205730                . = ALIGN (0x4)
+                0x40205788                . = ALIGN (0x4)
 
-.data           0x40205730       0x54
+.data           0x40205788       0x54
  *(.data)
- .data          0x40205730        0x0 cpu/omap3/start.o
- .data          0x40205730        0x0 board/omap3beagle/libomap3beagle.a(platform.o)
- .data          0x40205730        0x0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
- .data          0x40205730        0x0 cpu/omap3/libomap3.a(mmc.o)
- .data          0x40205730       0x30 cpu/omap3/libomap3.a(gpio.o)
- .data          0x40205760        0x0 lib/libarm.a(_udivsi3.o)
- .data          0x40205760       0x18 lib/libarm.a(board.o)
-                0x40205760                init_sequence
- .data          0x40205778        0x0 lib/libarm.a(printf.o)
- .data          0x40205778        0x0 lib/libarm.a(div0.o)
- .data          0x40205778        0x0 lib/libarm.a(_umodsi3.o)
- .data          0x40205778        0xc fs/fat/libfat.a(fat.o)
-                0x40205778                fnamecopy
-                0x4020577c                do_fat_read_block
- .data          0x40205784        0x0 disk/libdisk.a(part.o)
- .data          0x40205784        0x0 drivers/libdrivers.a(serial.o)
- .data          0x40205784        0x0 drivers/libdrivers.a(ns16550.o)
- .data          0x40205784        0x0 drivers/libdrivers.a(onenand.o)
- .data          0x40205784        0x0 drivers/libdrivers.a(k9f1g08r0a.o)
- .data          0x40205784        0x0 cpu/omap3/libomap3.a(cpu.o)
- .data          0x40205784        0x0 lib/libarm.a(ecc.o)
-                0x40205784                . = ALIGN (0x4)
+ .data          0x40205788        0x0 cpu/omap3/start.o
+ .data          0x40205788        0x0 board/omap3beagle/libomap3beagle.a(platform.o)
+ .data          0x40205788        0x0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
+ .data          0x40205788        0x0 cpu/omap3/libomap3.a(mmc.o)
+ .data          0x40205788       0x30 cpu/omap3/libomap3.a(gpio.o)
+ .data          0x402057b8        0x0 lib/libarm.a(_udivsi3.o)
+ .data          0x402057b8       0x18 lib/libarm.a(board.o)
+                0x402057b8                init_sequence
+ .data          0x402057d0        0x0 lib/libarm.a(printf.o)
+ .data          0x402057d0        0x0 lib/libarm.a(div0.o)
+ .data          0x402057d0        0x0 lib/libarm.a(_umodsi3.o)
+ .data          0x402057d0        0xc fs/fat/libfat.a(fat.o)
+                0x402057d0                fnamecopy
+                0x402057d4                do_fat_read_block
+ .data          0x402057dc        0x0 disk/libdisk.a(part.o)
+ .data          0x402057dc        0x0 drivers/libdrivers.a(serial.o)
+ .data          0x402057dc        0x0 drivers/libdrivers.a(ns16550.o)
+ .data          0x402057dc        0x0 drivers/libdrivers.a(onenand.o)
+ .data          0x402057dc        0x0 drivers/libdrivers.a(k9f1g08r0a.o)
+ .data          0x402057dc        0x0 cpu/omap3/libomap3.a(cpu.o)
+ .data          0x402057dc        0x0 lib/libarm.a(ecc.o)
+                0x402057dc                . = ALIGN (0x4)
 
 .got
  *(.got)
-                0x40205784                . = ALIGN (0x4)
-                0x40205784                __bss_start = .
+                0x402057dc                . = ALIGN (0x4)
+                0x402057dc                __bss_start = .
 
-.bss            0x40205784     0x30f8
+.bss            0x402057dc     0x30f8
  *(.bss)
- .bss           0x40205784        0x0 cpu/omap3/start.o
- .bss           0x40205784        0x0 board/omap3beagle/libomap3beagle.a(platform.o)
- .bss           0x40205784        0x0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
- .bss           0x40205784       0x78 cpu/omap3/libomap3.a(mmc.o)
-                0x402057e8                cur_card_data
- .bss           0x402057fc        0x0 cpu/omap3/libomap3.a(gpio.o)
- .bss           0x402057fc        0x0 lib/libarm.a(_udivsi3.o)
- .bss           0x402057fc        0x0 lib/libarm.a(board.o)
- .bss           0x402057fc        0x0 lib/libarm.a(printf.o)
- .bss           0x402057fc        0x0 lib/libarm.a(div0.o)
- .bss           0x402057fc        0x0 lib/libarm.a(_umodsi3.o)
- .bss           0x402057fc     0x3078 fs/fat/libfat.a(fat.o)
-                0x40205844                volinfo
-                0x40205860                datablock
-                0x40205804                bs
- .bss           0x40208874        0x0 disk/libdisk.a(part.o)
- .bss           0x40208874        0x0 drivers/libdrivers.a(serial.o)
- .bss           0x40208874        0x0 drivers/libdrivers.a(ns16550.o)
- .bss           0x40208874        0x0 drivers/libdrivers.a(onenand.o)
- .bss           0x40208874        0x8 drivers/libdrivers.a(k9f1g08r0a.o)
-                0x40208878                is_ddr_166M
- .bss           0x4020887c        0x0 cpu/omap3/libomap3.a(cpu.o)
- .bss           0x4020887c        0x0 lib/libarm.a(ecc.o)
-                0x4020887c                _end = .
+ .bss           0x402057dc        0x0 cpu/omap3/start.o
+ .bss           0x402057dc        0x0 board/omap3beagle/libomap3beagle.a(platform.o)
+ .bss           0x402057dc        0x0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
+ .bss           0x402057dc       0x78 cpu/omap3/libomap3.a(mmc.o)
+                0x40205840                cur_card_data
+ .bss           0x40205854        0x0 cpu/omap3/libomap3.a(gpio.o)
+ .bss           0x40205854        0x0 lib/libarm.a(_udivsi3.o)
+ .bss           0x40205854        0x0 lib/libarm.a(board.o)
+ .bss           0x40205854        0x0 lib/libarm.a(printf.o)
+ .bss           0x40205854        0x0 lib/libarm.a(div0.o)
+ .bss           0x40205854        0x0 lib/libarm.a(_umodsi3.o)
+ .bss           0x40205854     0x3078 fs/fat/libfat.a(fat.o)
+                0x4020589c                volinfo
+                0x402058b8                datablock
+                0x4020585c                bs
+ .bss           0x402088cc        0x0 disk/libdisk.a(part.o)
+ .bss           0x402088cc        0x0 drivers/libdrivers.a(serial.o)
+ .bss           0x402088cc        0x0 drivers/libdrivers.a(ns16550.o)
+ .bss           0x402088cc        0x0 drivers/libdrivers.a(onenand.o)
+ .bss           0x402088cc        0x8 drivers/libdrivers.a(k9f1g08r0a.o)
+                0x402088d0                is_ddr_166M
+ .bss           0x402088d4        0x0 cpu/omap3/libomap3.a(cpu.o)
+ .bss           0x402088d4        0x0 lib/libarm.a(ecc.o)
+                0x402088d4                _end = .
 Address of section .text set to 0x40200800
 LOAD cpu/omap3/start.o
 START GROUP
@@ -264,7 +265,7 @@ LOAD fs/fat/libfat.a
 LOAD disk/libdisk.a
 LOAD drivers/libdrivers.a
 END GROUP
-LOAD /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/libgcc.a
+LOAD /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/libgcc.a
 OUTPUT(x-load elf32-littlearm)
 
 .ARM.attributes
@@ -362,56 +363,56 @@ OUTPUT(x-load elf32-littlearm)
  .stab          0x0000096c      0x264 lib/libarm.a(_umodsi3.o)
                                 0x270 (size before relaxing)
 
-.stabstr        0x00000000      0x153
- .stabstr       0x00000000      0x153 cpu/omap3/start.o
+.stabstr        0x00000000      0x15f
+ .stabstr       0x00000000      0x15f cpu/omap3/start.o
 
-.debug_abbrev   0x00000000     0x15c6
+.debug_abbrev   0x00000000     0x15da
  .debug_abbrev  0x00000000      0x2d0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
  .debug_abbrev  0x000002d0      0x281 cpu/omap3/libomap3.a(mmc.o)
  .debug_abbrev  0x00000551      0x1c5 cpu/omap3/libomap3.a(gpio.o)
- .debug_abbrev  0x00000716       0xd4 lib/libarm.a(board.o)
- .debug_abbrev  0x000007ea      0x1fe lib/libarm.a(printf.o)
- .debug_abbrev  0x000009e8       0x29 lib/libarm.a(div0.o)
- .debug_abbrev  0x00000a11      0x361 fs/fat/libfat.a(fat.o)
- .debug_abbrev  0x00000d72       0xf2 disk/libdisk.a(part.o)
- .debug_abbrev  0x00000e64      0x14c drivers/libdrivers.a(serial.o)
- .debug_abbrev  0x00000fb0      0x116 drivers/libdrivers.a(ns16550.o)
- .debug_abbrev  0x000010c6      0x118 drivers/libdrivers.a(onenand.o)
- .debug_abbrev  0x000011de      0x252 drivers/libdrivers.a(k9f1g08r0a.o)
- .debug_abbrev  0x00001430       0x4a cpu/omap3/libomap3.a(cpu.o)
- .debug_abbrev  0x0000147a      0x14c lib/libarm.a(ecc.o)
+ .debug_abbrev  0x00000716       0xe8 lib/libarm.a(board.o)
+ .debug_abbrev  0x000007fe      0x1fe lib/libarm.a(printf.o)
+ .debug_abbrev  0x000009fc       0x29 lib/libarm.a(div0.o)
+ .debug_abbrev  0x00000a25      0x361 fs/fat/libfat.a(fat.o)
+ .debug_abbrev  0x00000d86       0xf2 disk/libdisk.a(part.o)
+ .debug_abbrev  0x00000e78      0x14c drivers/libdrivers.a(serial.o)
+ .debug_abbrev  0x00000fc4      0x116 drivers/libdrivers.a(ns16550.o)
+ .debug_abbrev  0x000010da      0x118 drivers/libdrivers.a(onenand.o)
+ .debug_abbrev  0x000011f2      0x252 drivers/libdrivers.a(k9f1g08r0a.o)
+ .debug_abbrev  0x00001444       0x4a cpu/omap3/libomap3.a(cpu.o)
+ .debug_abbrev  0x0000148e      0x14c lib/libarm.a(ecc.o)
 
-.debug_info     0x00000000     0x441f
+.debug_info     0x00000000     0x4444
  .debug_info    0x00000000      0xb07 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
  .debug_info    0x00000b07      0xfdb cpu/omap3/libomap3.a(mmc.o)
  .debug_info    0x00001ae2      0x3d9 cpu/omap3/libomap3.a(gpio.o)
- .debug_info    0x00001ebb      0x12f lib/libarm.a(board.o)
- .debug_info    0x00001fea      0x3de lib/libarm.a(printf.o)
- .debug_info    0x000023c8       0x39 lib/libarm.a(div0.o)
- .debug_info    0x00002401      0xf96 fs/fat/libfat.a(fat.o)
- .debug_info    0x00003397      0x24c disk/libdisk.a(part.o)
- .debug_info    0x000035e3      0x299 drivers/libdrivers.a(serial.o)
- .debug_info    0x0000387c      0x254 drivers/libdrivers.a(ns16550.o)
- .debug_info    0x00003ad0      0x20e drivers/libdrivers.a(onenand.o)
- .debug_info    0x00003cde      0x404 drivers/libdrivers.a(k9f1g08r0a.o)
- .debug_info    0x000040e2       0x8d cpu/omap3/libomap3.a(cpu.o)
- .debug_info    0x0000416f      0x2b0 lib/libarm.a(ecc.o)
+ .debug_info    0x00001ebb      0x154 lib/libarm.a(board.o)
+ .debug_info    0x0000200f      0x3de lib/libarm.a(printf.o)
+ .debug_info    0x000023ed       0x39 lib/libarm.a(div0.o)
+ .debug_info    0x00002426      0xf96 fs/fat/libfat.a(fat.o)
+ .debug_info    0x000033bc      0x24c disk/libdisk.a(part.o)
+ .debug_info    0x00003608      0x299 drivers/libdrivers.a(serial.o)
+ .debug_info    0x000038a1      0x254 drivers/libdrivers.a(ns16550.o)
+ .debug_info    0x00003af5      0x20e drivers/libdrivers.a(onenand.o)
+ .debug_info    0x00003d03      0x404 drivers/libdrivers.a(k9f1g08r0a.o)
+ .debug_info    0x00004107       0x8d cpu/omap3/libomap3.a(cpu.o)
+ .debug_info    0x00004194      0x2b0 lib/libarm.a(ecc.o)
 
-.debug_line     0x00000000     0x1366
- .debug_line    0x00000000      0x3c8 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
- .debug_line    0x000003c8      0x238 cpu/omap3/libomap3.a(mmc.o)
- .debug_line    0x00000600      0x141 cpu/omap3/libomap3.a(gpio.o)
- .debug_line    0x00000741       0xae lib/libarm.a(board.o)
- .debug_line    0x000007ef      0x21c lib/libarm.a(printf.o)
- .debug_line    0x00000a0b       0x38 lib/libarm.a(div0.o)
- .debug_line    0x00000a43      0x2c5 fs/fat/libfat.a(fat.o)
- .debug_line    0x00000d08      0x110 disk/libdisk.a(part.o)
- .debug_line    0x00000e18       0xac drivers/libdrivers.a(serial.o)
- .debug_line    0x00000ec4       0xb8 drivers/libdrivers.a(ns16550.o)
- .debug_line    0x00000f7c       0xc9 drivers/libdrivers.a(onenand.o)
- .debug_line    0x00001045      0x1cc drivers/libdrivers.a(k9f1g08r0a.o)
- .debug_line    0x00001211       0x36 cpu/omap3/libomap3.a(cpu.o)
- .debug_line    0x00001247      0x11f lib/libarm.a(ecc.o)
+.debug_line     0x00000000     0x13bb
+ .debug_line    0x00000000      0x3d1 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
+ .debug_line    0x000003d1      0x23e cpu/omap3/libomap3.a(mmc.o)
+ .debug_line    0x0000060f      0x147 cpu/omap3/libomap3.a(gpio.o)
+ .debug_line    0x00000756       0xb8 lib/libarm.a(board.o)
+ .debug_line    0x0000080e      0x237 lib/libarm.a(printf.o)
+ .debug_line    0x00000a45       0x38 lib/libarm.a(div0.o)
+ .debug_line    0x00000a7d      0x2c5 fs/fat/libfat.a(fat.o)
+ .debug_line    0x00000d42      0x116 disk/libdisk.a(part.o)
+ .debug_line    0x00000e58       0xaf drivers/libdrivers.a(serial.o)
+ .debug_line    0x00000f07       0xbb drivers/libdrivers.a(ns16550.o)
+ .debug_line    0x00000fc2       0xcc drivers/libdrivers.a(onenand.o)
+ .debug_line    0x0000108e      0x1d5 drivers/libdrivers.a(k9f1g08r0a.o)
+ .debug_line    0x00001263       0x36 cpu/omap3/libomap3.a(cpu.o)
+ .debug_line    0x00001299      0x122 lib/libarm.a(ecc.o)
 
 .debug_frame    0x00000000      0xa14
  .debug_frame   0x00000000      0x2a0 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
@@ -511,32 +512,32 @@ OUTPUT(x-load elf32-littlearm)
  .debug_ranges  0x00000230       0xe8 fs/fat/libfat.a(fat.o)
  .debug_ranges  0x00000318       0x38 drivers/libdrivers.a(k9f1g08r0a.o)
 
-.debug_str      0x00000000     0x14d6
- .debug_str     0x00000000      0x3e7 board/omap3beagle/libomap3beagle.a(omap3beagle.o)
-                                0x486 (size before relaxing)
- .debug_str     0x000003e7      0x6e2 cpu/omap3/libomap3.a(mmc.o)
-                                0x827 (size before relaxing)
- .debug_str     0x00000ac9       0xc9 cpu/omap3/libomap3.a(gpio.o)
-                                0x1eb (size before relaxing)
- .debug_str     0x00000b92       0x8e lib/libarm.a(board.o)
-                                0x128 (size before relaxing)
- .debug_str     0x00000c20       0xb3 lib/libarm.a(printf.o)
-                                0x1b9 (size before relaxing)
- .debug_str     0x00000cd3        0xe lib/libarm.a(div0.o)
-                                 0x5b (size before relaxing)
- .debug_str     0x00000ce1      0x482 fs/fat/libfat.a(fat.o)
-                                0x61d (size before relaxing)
- .debug_str     0x00001163       0x78 disk/libdisk.a(part.o)
-                                0x196 (size before relaxing)
- .debug_str     0x000011db       0xfa drivers/libdrivers.a(serial.o)
-                                0x18f (size before relaxing)
- .debug_str     0x000012d5       0x63 drivers/libdrivers.a(ns16550.o)
-                                0x106 (size before relaxing)
- .debug_str     0x00001338       0x68 drivers/libdrivers.a(onenand.o)
-                                0x165 (size before relaxing)
- .debug_str     0x000013a0       0xa8 drivers/libdrivers.a(k9f1g08r0a.o)
-                                0x1df (size before relaxing)
- .debug_str     0x00001448        0xf cpu/omap3/libomap3.a(cpu.o)
-                                 0xeb (size before relaxing)
- .debug_str     0x00001457       0x7f lib/libarm.a(ecc.o)
-                                0x165 (size before relaxing)
+.debug_str      0x00000000     0x14f1
+ .debug_str     0x00000000      0x3ea board/omap3beagle/libomap3beagle.a(omap3beagle.o)
+                                0x489 (size before relaxing)
+ .debug_str     0x000003ea      0x6e5 cpu/omap3/libomap3.a(mmc.o)
+                                0x82a (size before relaxing)
+ .debug_str     0x00000acf       0xc9 cpu/omap3/libomap3.a(gpio.o)
+                                0x1ee (size before relaxing)
+ .debug_str     0x00000b98       0x9a lib/libarm.a(board.o)
+                                0x134 (size before relaxing)
+ .debug_str     0x00000c32       0xb3 lib/libarm.a(printf.o)
+                                0x1bc (size before relaxing)
+ .debug_str     0x00000ce5        0xe lib/libarm.a(div0.o)
+                                 0x5e (size before relaxing)
+ .debug_str     0x00000cf3      0x485 fs/fat/libfat.a(fat.o)
+                                0x620 (size before relaxing)
+ .debug_str     0x00001178       0x7b disk/libdisk.a(part.o)
+                                0x199 (size before relaxing)
+ .debug_str     0x000011f3       0xfd drivers/libdrivers.a(serial.o)
+                                0x192 (size before relaxing)
+ .debug_str     0x000012f0       0x63 drivers/libdrivers.a(ns16550.o)
+                                0x109 (size before relaxing)
+ .debug_str     0x00001353       0x68 drivers/libdrivers.a(onenand.o)
+                                0x168 (size before relaxing)
+ .debug_str     0x000013bb       0xa8 drivers/libdrivers.a(k9f1g08r0a.o)
+                                0x1e2 (size before relaxing)
+ .debug_str     0x00001463        0xf cpu/omap3/libomap3.a(cpu.o)
+                                 0xee (size before relaxing)
+ .debug_str     0x00001472       0x7f lib/libarm.a(ecc.o)
+                                0x168 (size before relaxing)

@@ -1,49 +1,14 @@
   CHK     include/linux/version.h
   CHK     include/generated/utsrelease.h
-make[1]: “include/generated/mach-types.h”是最新的。
+make[1]: `include/generated/mach-types.h' is up to date.
   CALL    scripts/checksyscalls.sh
   CHK     include/generated/compile.h
-  CC      drivers/media/video/ov5640.o
-drivers/media/video/ov5640.c: In function 'ov5640_read_reg':
-drivers/media/video/ov5640.c:4462: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_def_config':
-drivers/media/video/ov5640.c:4555: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_vga_mode':
-drivers/media/video/ov5640.c:4569: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c:4571: warning: unused variable 'fmt_reg'
-drivers/media/video/ov5640.c: In function 'ov5640_detect':
-drivers/media/video/ov5640.c:4629: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_dev_init':
-drivers/media/video/ov5640.c:4680: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_s_config':
-drivers/media/video/ov5640.c:4705: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_s_power':
-drivers/media/video/ov5640.c:4731: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_open':
-drivers/media/video/ov5640.c:4770: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_enum_mbus_code':
-drivers/media/video/ov5640.c:4818: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_enum_frame_size':
-drivers/media/video/ov5640.c:4834: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_get_pad_format':
-drivers/media/video/ov5640.c:4860: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_set_pad_format':
-drivers/media/video/ov5640.c:4872: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_get_crop':
-drivers/media/video/ov5640.c:4901: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_set_crop':
-drivers/media/video/ov5640.c:4912: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_s_ctrl':
-drivers/media/video/ov5640.c:5017: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_probe':
-drivers/media/video/ov5640.c:5152: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: In function 'ov5640_remove':
-drivers/media/video/ov5640.c:5238: warning: ISO C90 forbids mixed declarations and code
-drivers/media/video/ov5640.c: At top level:
-drivers/media/video/ov5640.c:204: warning: 'ov5640_5m_reg' defined but not used
-  LD      drivers/media/video/built-in.o
-  LD      drivers/media/built-in.o
-  LD      drivers/built-in.o
+  CC      arch/arm/mach-omap2/board-omap3beagle-camera.o
+arch/arm/mach-omap2/board-omap3beagle-camera.c: In function 'beagle_ov5640_s_power':
+arch/arm/mach-omap2/board-omap3beagle-camera.c:74: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-omap2/board-omap3beagle-camera.c: In function 'beagle_ov5640_configure_interface':
+arch/arm/mach-omap2/board-omap3beagle-camera.c:149: warning: ISO C90 forbids mixed declarations and code
+  LD      arch/arm/mach-omap2/built-in.o
   LD      vmlinux.o
   MODPOST vmlinux.o
 WARNING: modpost: Found 3 section mismatch(es).
@@ -77,9 +42,9 @@ To see full details build your kernel with:
   Kernel: arch/arm/boot/zImage is ready
   UIMAGE  arch/arm/boot/uImage
 Image Name:   Linux-2.6.37
-Created:      Wed May 22 21:06:11 2013
+Created:      Tue Jun 18 12:59:36 2013
 Image Type:   ARM Linux Kernel Image (uncompressed)
-Data Size:    3094688 Bytes = 3022.16 kB = 2.95 MB
+Data Size:    3094784 Bytes = 3022.25 kB = 2.95 MB
 Load Address: 80008000
 Entry Point:  80008000
   Image arch/arm/boot/uImage is ready

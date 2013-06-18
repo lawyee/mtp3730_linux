@@ -40,6 +40,34 @@
 static struct regulator *beagle_1v5;	//beagle_cam_digital
 static struct regulator *beagle_1v8;	//beagle_cam_io
 
+static int ov5640_read_reg(struct i2c_client *client, unsigned short reg)
+{
+        int err = 0;
+        struct i2c_msg msg[1];
+        unsigned char data[2];
+        unsigned char val = 0;
+
+        if (!client->adapter)
+                return -ENODEV;
+
+        msg->addr = client->addr;
+        msg->flags = 0;
+        msg->len = I2C_TWO_BYTE_TRANSFER;
+        msg->buf = data;
+        data[0] = (reg & I2C_TXRX_DATA_MASK_UPPER) >> I2C_TXRX_DATA_SHIFT;
+        data[1] = (reg & I2C_TXRX_DATA_MASK);
+        err = i2c_transfer(client->adapter, msg, 1);
+        if (err >= 0) {
+                msg->flags = I2C_M_RD;
+                msg->len = I2C_ONE_BYTE_TRANSFER;       /* 1 byte read */
+                err = i2c_transfer(client->adapter, msg, 1);
+                if (err >= 0) {
+                        val = (data[0] & I2C_TXRX_DATA_MASK);
+                }
+        }
+        return (int)(0xff & val);
+}
+
 static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 {
 	printk(KERN_DEBUG "%s, ENTER\n",__func__);
@@ -91,6 +119,12 @@ static int beagle_ov5640_s_power(struct v4l2_subdev *subdev, int on)
 		 * ((1000000 * 100) / 24000000) = aprox 5 us.
 		 */
 		udelay(5);
+		while(1){
+			struct i2c_client *client = v4l2_get_subdevdata(subdev);
+
+			printk(KERN_INFO "%s,val=0x%x\n",__func__,(ov5640_read_reg(client, 0x300a) << 8) + ov5640_read_reg(client, 0x300b));
+
+		}
 	} else {
 		/*
 		 * Power Down Sequence

@@ -73,12 +73,14 @@ void start_armboot (void)
 
 	misc_init_r();
 	buf =  (uchar*) CFG_LOADADDR;
+	printf("%s,buf1=0x%x\n",__func__,buf);
 
 	/* Always first try mmc without checking boot pins */
 #ifndef CONFIG_OMAP3_BEAGLE
 	if ((get_mem_type() == MMC_ONENAND) || (get_mem_type() == MMC_NAND))
 #endif	/* CONFIG_OMAP3_BEAGLE */
 		buf += mmc_boot(buf);
+		printf("%s,buf2=0x%x\n",__func__,buf);
 
 	if (buf == (uchar *)CFG_LOADADDR) {
 		if (get_mem_type() == GPMC_NAND){

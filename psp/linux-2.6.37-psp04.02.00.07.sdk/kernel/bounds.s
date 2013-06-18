@@ -11,17 +11,18 @@
 	.file	"bounds.c"
 @ GNU C (Sourcery G++ Lite 2009q1-203) version 4.3.3 (arm-none-linux-gnueabi)
 @	compiled by GNU C version 4.3.2, GMP version 4.2.4, MPFR version 2.3.2.
-@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+@ GGC heuristics: --param ggc-min-expand=98 --param ggc-min-heapsize=128307
 @ options passed:  -nostdinc
-@ -I/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include
+@ -I/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include
 @ -Iinclude -Iarch/arm/mach-omap2/include -Iarch/arm/plat-omap/include
 @ -iprefix
-@ /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/
-@ -isysroot /home/luoyi/arm-2009q1/bin/../arm-none-linux-gnueabi/libc
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/
+@ -isysroot
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../arm-none-linux-gnueabi/libc
 @ -D__KERNEL__ -D__LINUX_ARM_ARCH__=7 -Uarm -DKBUILD_STR(s)=#s
 @ -DKBUILD_BASENAME=KBUILD_STR(bounds) -DKBUILD_MODNAME=KBUILD_STR(bounds)
 @ -isystem
-@ /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include
 @ -include include/generated/autoconf.h -MD kernel/.bounds.s.d
 @ kernel/bounds.c -mlittle-endian -marm -mabi=aapcs-linux
 @ -mno-thumb-interwork -march=armv7-a -msoft-float -auxbase-strip
@@ -432,8 +433,6 @@ foo:
 	.ascii	"ZONE_NORMAL\000"
 .LASF28:
 	.ascii	"PG_mappedtodisk\000"
-.LASF39:
-	.ascii	"PG_slob_free\000"
 .LASF11:
 	.ascii	"PG_locked\000"
 .LASF15:
@@ -504,6 +503,9 @@ foo:
 	.ascii	"short int\000"
 .LASF20:
 	.ascii	"PG_arch_1\000"
+.LASF48:
+	.ascii	"/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04"
+	.ascii	".02.00.07.sdk\000"
 .LASF9:
 	.ascii	"long int\000"
 .LASF44:
@@ -520,8 +522,7 @@ foo:
 	.ascii	"_Bool\000"
 .LASF33:
 	.ascii	"PG_mlocked\000"
-.LASF48:
-	.ascii	"/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02"
-	.ascii	".00.07.sdk\000"
+.LASF39:
+	.ascii	"PG_slob_free\000"
 	.ident	"GCC: (Sourcery G++ Lite 2009q1-203) 4.3.3"
 	.section	.note.GNU-stack,"",%progbits

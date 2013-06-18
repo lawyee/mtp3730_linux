@@ -1,0 +1,19 @@
+Make boot.scr for MMC/SD Images
+===============================
+MMC/SD card images need a boot script that reads uImage (Linux kernel Image), sets the bootargs and boots the Images
+
+The default boot.scr generated will 
+
+1) load uImage to 0x80200000 from dos partition of MMC/SD card
+
+2) Sets default bootargs to 
+'init=/init console=ttyS2,115200n8 ip=off root=/dev/mmcblk0p2 rw init=/init rootwait mem=256M androidboot.console=ttyS2 omap_vout.vid1_static_vrfb_alloc=1'
+
+3) Creates boot.scr with mkimage header. The mkimage utility needed for this command is also included in this directory
+
+Execution, just do a 
+
+#> ./mkbootscr
+
+This command will generate boot.cmd and boot.scr. boot.scr should be copied to MMC/SD card's dos partition.
+

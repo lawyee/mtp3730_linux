@@ -11,17 +11,18 @@
 	.file	"asm-offsets.c"
 @ GNU C (Sourcery G++ Lite 2009q1-203) version 4.3.3 (arm-none-linux-gnueabi)
 @	compiled by GNU C version 4.3.2, GMP version 4.2.4, MPFR version 2.3.2.
-@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+@ GGC heuristics: --param ggc-min-expand=98 --param ggc-min-heapsize=128307
 @ options passed:  -nostdinc
-@ -I/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include
+@ -I/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include
 @ -Iinclude -Iarch/arm/mach-omap2/include -Iarch/arm/plat-omap/include
 @ -iprefix
-@ /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/
-@ -isysroot /home/luoyi/arm-2009q1/bin/../arm-none-linux-gnueabi/libc
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/
+@ -isysroot
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../arm-none-linux-gnueabi/libc
 @ -D__KERNEL__ -D__LINUX_ARM_ARCH__=7 -Uarm -DKBUILD_STR(s)=#s
 @ -DKBUILD_BASENAME=KBUILD_STR(asm_offsets)
 @ -DKBUILD_MODNAME=KBUILD_STR(asm_offsets) -isystem
-@ /home/luoyi/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include
+@ /home/ourselec/mtp3730_linux/psp/arm-2009q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include
 @ -include include/generated/autoconf.h -MD
 @ arch/arm/kernel/.asm-offsets.s.d arch/arm/kernel/asm-offsets.c
 @ -mlittle-endian -marm -mabi=aapcs-linux -mno-thumb-interwork
@@ -409,16 +410,16 @@ main:
 	.text
 .Letext0:
 	.file 2 "include/asm-generic/int-ll64.h"
-	.file 3 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/posix_types.h"
+	.file 3 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/posix_types.h"
 	.file 4 "include/linux/types.h"
 	.file 5 "include/linux/capability.h"
 	.file 6 "include/linux/thread_info.h"
 	.file 7 "include/linux/time.h"
-	.file 8 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/fpstate.h"
-	.file 9 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/thread_info.h"
-	.file 10 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/system.h"
+	.file 8 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/fpstate.h"
+	.file 9 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/thread_info.h"
+	.file 10 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/system.h"
 	.file 11 "include/linux/sched.h"
-	.file 12 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/processor.h"
+	.file 12 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/processor.h"
 	.file 13 "include/linux/spinlock_types_up.h"
 	.file 14 "include/asm-generic/atomic-long.h"
 	.file 15 "include/linux/stacktrace.h"
@@ -432,14 +433,14 @@ main:
 	.file 23 "include/linux/wait.h"
 	.file 24 "include/linux/kernel.h"
 	.file 25 "include/linux/completion.h"
-	.file 26 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/page.h"
+	.file 26 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/page.h"
 	.file 27 "include/linux/mm_types.h"
-	.file 28 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/mmu.h"
+	.file 28 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/mmu.h"
 	.file 29 "include/linux/mm.h"
 	.file 30 "include/asm-generic/cputime.h"
 	.file 31 "include/linux/rcupdate.h"
 	.file 32 "include/linux/sem.h"
-	.file 33 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/signal.h"
+	.file 33 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/signal.h"
 	.file 34 "include/asm-generic/signal-defs.h"
 	.file 35 "include/asm-generic/siginfo.h"
 	.file 36 "include/linux/signal.h"
@@ -459,7 +460,7 @@ main:
 	.file 50 "include/linux/ioport.h"
 	.file 51 "include/linux/tracepoint.h"
 	.file 52 "include/linux/dma-mapping.h"
-	.file 53 "/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/hwcap.h"
+	.file 53 "/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/arch/arm/include/asm/hwcap.h"
 	.file 54 "include/linux/printk.h"
 	.file 55 "include/linux/debug_locks.h"
 	.file 56 "include/linux/timex.h"
@@ -9982,13 +9983,13 @@ main:
 	.ascii	"cputime_t\000"
 .LASF177:
 	.ascii	"audit_context\000"
-.LASF805:
-	.ascii	"/home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02"
-	.ascii	".00.07.sdk\000"
 .LASF182:
 	.ascii	"irqaction\000"
 .LASF488:
 	.ascii	"nr_free\000"
+.LASF805:
+	.ascii	"/home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04"
+	.ascii	".02.00.07.sdk\000"
 .LASF407:
 	.ascii	"open\000"
 .LASF485:

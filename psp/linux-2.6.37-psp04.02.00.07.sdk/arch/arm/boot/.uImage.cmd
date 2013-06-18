@@ -1,1 +1,1 @@
-cmd_arch/arm/boot/uImage := /bin/sh /home/luoyi/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/scripts/mkuboot.sh -A arm -O linux -T kernel -C none -a 0x80008000 -e 0x80008000 -n 'Linux-2.6.37' -d arch/arm/boot/zImage arch/arm/boot/uImage
+cmd_arch/arm/boot/uImage := /bin/sh /home/ourselec/mtp3730_linux/psp/linux-2.6.37-psp04.02.00.07.sdk/scripts/mkuboot.sh -A arm -O linux -T kernel -C none -a 0x80008000 -e 0x80008000 -n 'Linux-2.6.37' -d arch/arm/boot/zImage arch/arm/boot/uImage
